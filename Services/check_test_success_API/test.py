@@ -11,10 +11,8 @@ while True:
         for i in range(len(data)):
             response = requests.get(BASE + "check_test_success/test" + str(i))
             print(response.json())
-    elif usrInput in ["0", "1", "2", "3", "4", "5", "6"]:
-        response = requests.get(BASE + "check_test_success/test" + str(usrInput))
-        print(response.json())
     elif usrInput == "exit":
         exit()
     else:
-        print("Invalid input. Please try again. \n")
+        response = requests.get(BASE + "check_test_success/test" + usrInput)
+        print(response.json())
